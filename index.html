@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casamento - Catarina & João</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #fafafa 0%, #fdf5e6 100%);
+      border-bottom: 3px solid #d4af37;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      margin: 0;
+      color: #2c3e50;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: #555;
+    }
+
+    /* Contagem regressiva elegante */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .countdown div {
+      background: #d4af37;
+      color: white;
+      padding: 1rem;
+      border-radius: 50%;
+      min-width: 80px;
+      min-height: 80px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .countdown span {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .countdown small {
+      font-size: 0.8rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .photo-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .photo-section img {
+      width: 100%;
+      max-width: 650px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .text-section {
+      margin: 3rem 0;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .text-section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.3rem;
+      color: #d4af37;
+      margin-bottom: 1rem;
+    }
+
+    .text-section p {
+      font-size: 1.1rem;
+      max-width: 750px;
+      margin: auto;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    .gift-section {
+      text-align: center;
+      margin: 4rem 0;
+    }
+
+    .gift-card {
+      display: inline-block;
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      border: 2px solid #d4af37;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .gift-card img {
+      width: 180px;
+      margin-bottom: 1rem;
+    }
+
+    .gift-card h3 {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    /* PIX container */
+    .pix-container {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .pix-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff8e7;
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      max-width: 360px;
+      margin: 0 auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .pix-box span {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #2c3e50;
+      word-break: break-all;
+      flex: 1;
+      margin-right: 0.8rem;
+    }
+
+    .copy-btn {
+      background: #d4af37;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      background: #b9972e;
+    }
+
+    .copy-msg {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: #777;
+      transition: 0.3s ease;
+      opacity: 0.8;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-picpay {
+      background: #21c25e;
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn-picpay:hover {
+      background: #1da951;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #fdf5e6;
+      border-top: 3px solid #d4af37;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <header>
+    <h1>Catarina & João</h1>
+    <p>Nosso grande dia está chegando!</p>
+    <div class="countdown" id="countdown">
+      <div><span id="days">0</span><small>Dias</small></div>
+      <div><span id="hours">0</span><small>Horas</small></div>
+      <div><span id="minutes">0</span><small>Minutos</small></div>
+      <div><span id="seconds">0</span><small>Segundos</small></div>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="photo-section">
+      <img src="casal.jpg" alt="Foto do casal">
+    </section>
+
+    <section class="text-section">
+      <h2>Nossa História</h2>
+      <p>
+        Foi em um dia ensolarado que nossas vidas se cruzaram, e desde então, 
+        cada momento tem sido especial. Queremos compartilhar esse novo capítulo 
+        com todos que amamos.
+      </p>
+      <p>
+        Estamos muito felizes em celebrar nosso casamento com vocês!
+      </p>
+    </section>
+
+    <section class="gift-section">
+      <div class="gift-card">
+        <h3>Presentes</h3>
+        <p>Se quiser nos presentear, você pode usar o Pix ou o PicPay 💛</p>
+        <img src="qrcode.png" alt="QR Code Pix">
+
+        <div class="pix-container">
+          <div class="pix-box">
+            <span id="pixKey">chavepix@email.com</span>
+            <button class="copy-btn" onclick="copyPix()">📋 Copiar</button>
+          </div>
+          <small id="copyMsg" class="copy-msg">Clique para copiar</small>
+        </div>
+
+        <a href="https://picpay.me/exemplo" target="_blank" class="btn btn-picpay">Presentear via PicPay</a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>Com carinho, Catarina & João 💍</p>
+  </footer>
+
+  <script>
+    // Função de copiar com feedback elegante
+    function copyPix() {
+      const pixKey = document.getElementById("pixKey").innerText;
+      const copyMsg = document.getElementById("copyMsg");
+
+      navigator.clipboard.writeText(pixKey).then(() => {
+        copyMsg.innerText = "✅ Copiado com sucesso!";
+        copyMsg.style.color = "#21c25e";
+      });
+    }
+
+    const weddingDate = new Date("2026-05-24T15:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "<p>O grande dia chegou! 🎉</p>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 40 },
+    "color": { "value": ["#d4af37", "#ff6f91"] },
+    "shape": {
+      "type": "polygon",
+      "polygon": { "nb_sides": 6 }, // base do coração: podemos simular com polígonos
+      "stroke": { "width": 0, "color": "#000000" }
+    },
+    "opacity": { "value": 0.7, "random": true },
+    "size": { "value": 10, "random": true },
+    "move": {
+      "enable": true,
+      "speed": 2,
+      "direction": "top",
+      "random": true,
+      "straight": false,
+      "out_mode": "out"
+    }
+  },
+  "interactivity": {
+    "events": {
+      "onhover": { "enable": true, "mode": "repulse" },
+      "onclick": { "enable": true, "mode": "push" }
+    },
+    "modes": {
+      "repulse": { "distance": 100 },
+      "push": { "particles_nb": 4 }
+    }
+  },
+  "retina_detect": true
+});
+
+  </script>
+</body>
+</html>
