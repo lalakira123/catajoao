@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casamento - Catarina & João</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap");
+
+    :root {
+      --terracota: #c15c19;
+      --verde: #779258;
+      --offwhite: #fafafa;
+      --bege: #f3efe9;
+      --texto: #3a3a3a;
+    }
 
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #fafafa;
-      color: #333;
-      line-height: 1.6;
+      background: var(--offwhite);
+      color: var(--texto);
+      width: auto;
     }
 
     #particles-js {
@@ -23,6 +32,23 @@
       top: 0;
       left: 0;
     }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem 3rem;
+    }
+
+    .logo {
+      max-width: 380px;
+      width: 90%;
+    }
+
+    .data {
+      margin-top: 1rem;
+      color: var(--verde);
+      letter-spacing: 2px;
+    }
+
 
     header {
       text-align: center;
@@ -45,39 +71,46 @@
       color: #555;
     }
 
-    /* Contagem regressiva elegante */
     .countdown {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2.5rem;
     }
 
     .countdown div {
-      background: #d4af37;
-      color: white;
-      padding: 1rem;
-      border-radius: 50%;
-      min-width: 80px;
-      min-height: 80px;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .countdown span {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: bold;
+      font-size: 2.2rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--terracota);
     }
 
     .countdown small {
+      display: block;
       font-size: 0.8rem;
+      letter-spacing: 1px;
     }
+
+    .historia {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .casal-ilustra {
+      max-width: 320px;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .historia h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--terracota);
+    }
+
+
 
     .container {
       max-width: 1000px;
@@ -94,7 +127,7 @@
       width: 100%;
       max-width: 650px;
       border-radius: 15px;
-      box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
     }
 
     .text-section {
@@ -118,20 +151,69 @@
       color: #555;
     }
 
+    .filter-box {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .filter-box select {
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .product {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .product h4 {
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .product span {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: var(--terracota);
+    }
+
+
     .gift-section {
       text-align: center;
       margin: 4rem 0;
     }
 
     .gift-card {
-      display: inline-block;
-      background: white;
-      border-radius: 15px;
-      padding: 2rem;
-      border: 2px solid #d4af37;
-      max-width: 400px;
-      width: 90%;
+      background: var(--bege);
+      border-radius: 12px;
+      padding: 2.5rem;
+      border: none;
     }
+
 
     .gift-card img {
       width: 180px;
@@ -159,7 +241,7 @@
       padding: 0.8rem 1rem;
       max-width: 360px;
       margin: 0 auto;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .pix-box span {
@@ -219,75 +301,123 @@
 
     footer {
       text-align: center;
-      padding: 1.5rem;
-      background: #fdf5e6;
-      border-top: 3px solid #d4af37;
-      margin-top: 2rem;
+      padding: 3rem 1rem;
+      color: var(--verde);
     }
 
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #555;
+    .ellie {
+      max-width: 80px;
+      opacity: 0.8;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
+
 <body>
   <div id="particles-js"></div>
 
-  <header>
-    <h1>Catarina & João</h1>
-    <p>Nosso grande dia está chegando!</p>
-    <div class="countdown" id="countdown">
-      <div><span id="days">0</span><small>Dias</small></div>
-      <div><span id="hours">0</span><small>Horas</small></div>
-      <div><span id="minutes">0</span><small>Minutos</small></div>
-      <div><span id="seconds">0</span><small>Segundos</small></div>
-    </div>
+  <header class="hero">
+    <img src="imgs/LOGO CASAMENTO.png" alt="Catarina e João" class="logo">
+    <p class="data">24 · Maio · 2026</p>
   </header>
 
+
   <div class="container">
-    <section class="photo-section">
-      <img src="casal.jpg" alt="Foto do casal">
+    <section class="historia">
+      <img src="imgs/CASAL.png" alt="" class="casal-ilustra">
+      <h2>Nossa História</h2>
+      <p>Foi em um dia ensolarado que nossas vidas se cruzaram...</p>
     </section>
 
-    <section class="text-section">
-      <h2>Nossa História</h2>
-      <p>
-        Foi em um dia ensolarado que nossas vidas se cruzaram, e desde então, 
-        cada momento tem sido especial. Queremos compartilhar esse novo capítulo 
-        com todos que amamos.
-      </p>
-      <p>
-        Estamos muito felizes em celebrar nosso casamento com vocês!
-      </p>
-    </section>
 
     <section class="gift-section">
       <div class="gift-card">
-        <h3>Presentes</h3>
-        <p>Se quiser nos presentear, você pode usar o Pix ou o PicPay 💛</p>
-        <img src="qrcode.png" alt="QR Code Pix">
+        <h3>Catálogo de Presentes 🎁</h3>
+        <p>Escolha um presente especial para nos ajudar a começar essa nova fase</p>
 
-        <div class="pix-container">
-          <div class="pix-box">
-            <span id="pixKey">chavepix@email.com</span>
-            <button class="copy-btn" onclick="copyPix()">📋 Copiar</button>
-          </div>
-          <small id="copyMsg" class="copy-msg">Clique para copiar</small>
+        <!-- Filtro -->
+        <div class="filter-box">
+          <label for="priceFilter">Filtrar por preço:</label>
+          <select id="priceFilter" onchange="filterProducts()">
+            <option value="all">Todos</option>
+            <option value="50">Até R$ 50</option>
+            <option value="100">Até R$ 100</option>
+            <option value="200">Até R$ 200</option>
+            <option value="300">Até R$ 300</option>
+          </select>
         </div>
 
-        <a href="https://picpay.me/exemplo" target="_blank" class="btn btn-picpay">Presentear via PicPay</a>
+        <!-- Catálogo -->
+        <div class="catalog" id="catalog">
+          <!-- Produto -->
+          <div class="product" data-price="80">
+            <img src="imgs/ALIANÇAS.png" alt="Jogo de Copos">
+            <h4>ALIANÇAS</h4>
+            <span>R$ 80,00</span>
+            <a href="https://link-de-pagamento.com/1" target="_blank" class="btn btn-picpay">
+              Presentear
+            </a>
+          </div>
+
+          <div class="product" data-price="150">
+            <img src="imgs/CANECAS.png" alt="Jogo de Pratos">
+            <h4>BREJAS</h4>
+            <span>R$ 150,00</span>
+            <a href="https://link-de-pagamento.com/2" target="_blank" class="btn btn-picpay">
+              Presentear
+            </a>
+          </div>
+
+          <div class="product" data-price="250">
+            <img src="imgs/PRATO.png" alt="Liquidificador">
+            <h4>PRATOS</h4>
+            <span>R$ 250,00</span>
+            <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              Presentear
+            </a>
+          </div>
+
+          <div class="product" data-price="300">
+            <img src="imgs/RELÓGIO.png" alt="Liquidificador">
+            <h4>RELOGIO PIKA</h4>
+            <span>R$ 250,00</span>
+            <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              Presentear
+            </a>
+          </div>
+        </div>
       </div>
     </section>
+
   </div>
 
   <footer>
-    <p>Com carinho, Catarina & João 💍</p>
+    <div>
+      <img src="imgs/ELLIE.png" alt="Ellie" class="ellie">
+      <img src="imgs/JOEL.png" alt="Ellie" class="ellie">
+    </div>
+    <p>Com carinho, Catarina & João</p>
   </footer>
+
 
   <script>
     // Função de copiar com feedback elegante
+    function filterProducts() {
+      const filterValue = document.getElementById("priceFilter").value;
+      const products = document.querySelectorAll(".product");
+
+      products.forEach(product => {
+        const price = Number(product.getAttribute("data-price"));
+
+        if (filterValue === "all" || price <= Number(filterValue)) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    }
+
+
     function copyPix() {
       const pixKey = document.getElementById("pixKey").innerText;
       const copyMsg = document.getElementById("copyMsg");
@@ -326,39 +456,33 @@
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
+    const gatos = [
+      "imgs/JOEL ARRANHANDO.png",
+      "imgs/ELLIE ARRANHANDO.png",
+    ];
+  
+    const gatoAleatorio = gatos[Math.floor(Math.random() * gatos.length)];
+  
     particlesJS("particles-js", {
-  "particles": {
-    "number": { "value": 40 },
-    "color": { "value": ["#d4af37", "#ff6f91"] },
-    "shape": {
-      "type": "polygon",
-      "polygon": { "nb_sides": 6 }, // base do coração: podemos simular com polígonos
-      "stroke": { "width": 0, "color": "#000000" }
-    },
-    "opacity": { "value": 0.7, "random": true },
-    "size": { "value": 10, "random": true },
-    "move": {
-      "enable": true,
-      "speed": 2,
-      "direction": "top",
-      "random": true,
-      "straight": false,
-      "out_mode": "out"
-    }
-  },
-  "interactivity": {
-    "events": {
-      "onhover": { "enable": true, "mode": "repulse" },
-      "onclick": { "enable": true, "mode": "push" }
-    },
-    "modes": {
-      "repulse": { "distance": 100 },
-      "push": { "particles_nb": 4 }
-    }
-  },
-  "retina_detect": true
-});
-
+      particles: {
+        number: { value: 18 },
+        shape: {
+          type: "image",
+          image: {
+            src: gatoAleatorio,
+            width: 100,
+            height: 100
+          }
+        },
+        size: { value: 22, random: true },
+        move: { enable: true, speed: 1, direction: "top" }
+      },
+      retina_detect: true
+    });
   </script>
+  
+  
+  
 </body>
+
 </html>
