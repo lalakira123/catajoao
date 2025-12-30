@@ -16,12 +16,154 @@
       --texto: #3a3a3a;
     }
 
+    /* Ajuste global para garantir que o corpo ocupe tudo */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Faz com que cada seção principal ocupe a tela inteira */
+    .hero,
+    .historia,
+    .gift-section {
+      min-height: 100vh;
+      /* 100% da altura da tela */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* Centraliza verticalmente */
+      align-items: center;
+      /* Centraliza horizontalmente */
+      box-sizing: border-box;
+      padding: 2rem;
+      scroll-snap-align: start;
+      /* Para um efeito de rolagem magnética (opcional) */
+    }
+
+    /* Ajuste específico para o catálogo não quebrar em telas pequenas */
+    .gift-card {
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      /* Garante que o card não ultrapasse a tela */
+    }
+
+    /* Garante que o container não limite a altura */
+    .container {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    /* INTRO */
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: transparent;
+      /* Centraliza o conteúdo (Logo e Texto) */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bege);
+      z-index: 2;
+      clip-path: inset(0% 0 0 0);
+    }
+
+    #ziper {
+      position: absolute;
+      top: -150px;
+      /* Começa bem fora da tela */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      z-index: 10;
+      opacity: 0;
+      /* Invisível antes do clique */
+      pointer-events: none;
+    }
+
+    .intro-content {
+      position: relative;
+      /* Mudado de absolute para relative para alinhar pelo flex do pai */
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: pulse 2.8s infinite;
+    }
+
+    .intro-content img {
+      width: 300px;
+      margin-bottom: 1rem;
+    }
+
+    /* animação de abertura real */
+    #intro.open .overlay {
+      clip-path: inset(100% 0 0 0);
+      /* revela o site de cima para baixo */
+    }
+
+    #intro.open #ziper {
+      top: 110%;
+    }
+
+    #intro.open .intro-content {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    #intro.open .intro-content {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    #intro.open .intro-content img {
+      animation: none;
+    }
+
+    /* Ocultar site principal inicialmente */
+    .hidden {
+      opacity: 0;
+    }
+
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background: var(--offwhite);
       color: var(--texto);
-      width: auto;
+      overflow-x: hidden;
+      /* Evita barra horizontal */
+      overflow-y: hidden;
+      /* TRAVA O SCROLL INICIALMENTE */
     }
 
     #particles-js {
@@ -110,8 +252,6 @@
       color: var(--terracota);
     }
 
-
-
     .container {
       max-width: 1000px;
       margin: auto;
@@ -163,55 +303,168 @@
       font-size: 1rem;
     }
 
+    /* Container do Catálogo */
+    /* Container do Catálogo - Aumentamos o minmax para caberem mais itens */
     .catalog {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      /* Reduzido de 280px para 200px */
       gap: 1.5rem;
+      /* Espaçamento menor entre cards */
       margin-top: 2rem;
     }
 
+    /* Card do Produto - Reduzimos o padding e a altura */
     .product {
       background: #fff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 1.2rem;
+      /* Reduzido de 2rem para 1.2rem */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
       text-align: center;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .product:hover {
-      transform: translateY(-5px);
-    }
-
+    /* Imagem do Produto - Menor e mais compacta */
     .product img {
-      width: 120px;
-      height: auto;
-      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 100px;
+      /* Reduzido de 150px para 100px */
+      height: 100px;
+      /* Reduzido de 150px para 100px */
+      object-fit: contain;
+      margin: 0 auto 1rem;
     }
 
+    /* Textos do Produto - Diminuir fontes para acompanhar o tamanho */
     .product h4 {
-      margin-bottom: 0.5rem;
-      color: #2c3e50;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      /* Reduzido de 1.2rem para 1rem */
+      margin-bottom: 0.3rem;
+      color: var(--texto);
     }
 
     .product span {
-      display: block;
-      margin-bottom: 1rem;
-      font-weight: bold;
+      font-size: 1.1rem;
+      /* Reduzido de 1.4rem para 1.1rem */
       color: var(--terracota);
+      margin-bottom: 1rem;
     }
 
+    /* Botão menor */
+    .btn-picpay {
+      font-size: 0.9rem;
+      padding: 0.6rem 1.2rem;
+    }
 
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(193, 92, 25, 0.15);
+      /* Glow terracota */
+      border-color: var(--terracota);
+    }
+
+    .product img {
+      width: 100%;
+      max-width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* Botão de Presentear Estilizado */
+/* Botão Minimalista e Elegante */
+.btn-picpay {
+  background-color: transparent;
+  color: var(--verde);
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 4px; /* Bordas levemente arredondadas, mais sóbrio */
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  border: 1.5px solid var(--verde); /* Borda fina */
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+/* Efeito Hover: Preenchimento suave */
+.btn-picpay:hover {
+  background-color: var(--verde);
+  color: white;
+  box-shadow: 0 4px 10px rgba(119, 146, 88, 0.2);
+}
+
+/* Ajuste no card para o botão não encostar nas bordas */
+.product {
+  padding: 1.5rem 1rem;
+  gap: 12px;
+}
+
+    /* MEDIA QUERY: 1 item por vez no celular */
+    @media (max-width: 600px) {
+      .catalog {
+        /* Isso permite 2 itens por linha no celular se a tela permitir */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 5px;
+      }
+
+      .product {
+        padding: 1rem 0.5rem;
+      }
+
+      .product img {
+        max-width: 80px;
+        height: 80px;
+      }
+    }
+
+    /* Seção de presentes ajustada */
     .gift-section {
-      text-align: center;
-      margin: 4rem 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
     }
 
     .gift-card {
       background: var(--bege);
-      border-radius: 12px;
+      border-radius: 20px;
       padding: 2.5rem;
-      border: none;
+      width: 100%;
+      max-width: 1000px;
+      /* Altura máxima para não sumir da tela */
+      max-height: 85vh;
+      /* Habilita o scroll interno quando houver muitos itens */
+      overflow-y: auto;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    /* Deixa a barra de rolagem do catálogo mais elegante */
+    .gift-card::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .gift-card::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+
+    .gift-card::-webkit-scrollbar-thumb {
+      background: var(--terracota);
+      border-radius: 10px;
     }
 
 
@@ -223,80 +476,6 @@
     .gift-card h3 {
       margin-bottom: 1rem;
       color: #2c3e50;
-    }
-
-    /* PIX container */
-    .pix-container {
-      margin: 1.5rem 0;
-      text-align: center;
-    }
-
-    .pix-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff8e7;
-      border: 2px solid #d4af37;
-      border-radius: 12px;
-      padding: 0.8rem 1rem;
-      max-width: 360px;
-      margin: 0 auto;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .pix-box span {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #2c3e50;
-      word-break: break-all;
-      flex: 1;
-      margin-right: 0.8rem;
-    }
-
-    .copy-btn {
-      background: #d4af37;
-      border: none;
-      color: white;
-      font-weight: bold;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .copy-btn:hover {
-      background: #b9972e;
-    }
-
-    .copy-msg {
-      display: block;
-      margin-top: 0.6rem;
-      font-size: 0.9rem;
-      color: #777;
-      transition: 0.3s ease;
-      opacity: 0.8;
-    }
-
-    .btn {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.9rem 1.8rem;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .btn-picpay {
-      background: #21c25e;
-      color: white;
-      text-decoration: none;
-    }
-
-    .btn-picpay:hover {
-      background: #1da951;
     }
 
     footer {
@@ -313,176 +492,280 @@
   </style>
 </head>
 
-<body>
-  <div id="particles-js"></div>
+<div id="main-site" class="hidden">
 
-  <header class="hero">
-    <img src="imgs/LOGO CASAMENTO.png" alt="Catarina e João" class="logo">
-    <p class="data">24 · Maio · 2026</p>
-  </header>
+  <body>
+    <div id="particles-js"></div>
 
-
-  <div class="container">
-    <section class="historia">
-      <img src="imgs/CASAL.png" alt="" class="casal-ilustra">
-      <h2>Nossa História</h2>
-      <p>Foi em um dia ensolarado que nossas vidas se cruzaram...</p>
-    </section>
+    <header class="hero">
+      <img src="imgs/LOGO CASAMENTO.png" alt="Catarina e João" class="logo">
+      <p class="data">24 · Maio · 2026</p>
+    </header>
 
 
-    <section class="gift-section">
-      <div class="gift-card">
-        <h3>Catálogo de Presentes 🎁</h3>
-        <p>Escolha um presente especial para nos ajudar a começar essa nova fase</p>
+    <div class="container">
+      <section class="historia">
+        <img src="imgs/CASAL.png" alt="" class="casal-ilustra">
+        <h2>Nossa História</h2>
+        <p>Foi em um dia ensolarado que nossas vidas se cruzaram...</p>
+      </section>
 
-        <!-- Filtro -->
-        <div class="filter-box">
-          <label for="priceFilter">Filtrar por preço:</label>
-          <select id="priceFilter" onchange="filterProducts()">
-            <option value="all">Todos</option>
-            <option value="50">Até R$ 50</option>
-            <option value="100">Até R$ 100</option>
-            <option value="200">Até R$ 200</option>
-            <option value="300">Até R$ 300</option>
-          </select>
+
+      <section class="gift-section">
+        <div class="gift-card">
+          <h3>Catálogo de Presentes 🎁</h3>
+          <p>Escolha um presente especial para nos ajudar a começar essa nova fase</p>
+
+          <!-- Filtro -->
+          <div class="filter-box">
+            <div style="margin-bottom: 1rem;">
+              <label for="priceFilter">Até R$: </label>
+              <select id="priceFilter" onchange="applyFilters()">
+                <option value="all">Todos os preços</option>
+                <option value="100">Até R$ 100</option>
+                <option value="250">Até R$ 250</option>
+                <option value="500">Até R$ 500</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="orderFilter">Ordenar por: </label>
+              <select id="orderFilter" onchange="applyFilters()">
+                <option value="default">Destaques</option>
+                <option value="asc">Menor Preço</option>
+                <option value="desc">Maior Preço</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Catálogo -->
+          <div class="catalog" id="catalog">
+            <!-- Produto -->
+            <div class="product" data-price="80">
+              <img src="imgs/ALIANÇAS.png" alt="Jogo de Copos">
+              <h4>ALIANÇAS</h4>
+              <span>R$ 80,00</span>
+              <a href="https://link-de-pagamento.com/1" target="_blank" class="btn btn-picpay">
+                Presentear
+              </a>
+            </div>
+
+            <div class="product" data-price="150">
+              <img src="imgs/CANECAS.png" alt="Jogo de Pratos">
+              <h4>BREJAS</h4>
+              <span>R$ 150,00</span>
+              <a href="https://link-de-pagamento.com/2" target="_blank" class="btn btn-picpay">
+                Presentear
+              </a>
+            </div>
+
+            <div class="product" data-price="250">
+              <img src="imgs/PRATO.png" alt="Liquidificador">
+              <h4>PRATOS</h4>
+              <span>R$ 250,00</span>
+              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+                Presentear
+              </a>
+            </div>
+
+            <div class="product" data-price="300">
+              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
+              <h4>RELOGIO PIKA</h4>
+              <span>R$ 250,00</span>
+              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+                Presentear
+              </a>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <!-- Catálogo -->
-        <div class="catalog" id="catalog">
-          <!-- Produto -->
-          <div class="product" data-price="80">
-            <img src="imgs/ALIANÇAS.png" alt="Jogo de Copos">
-            <h4>ALIANÇAS</h4>
-            <span>R$ 80,00</span>
-            <a href="https://link-de-pagamento.com/1" target="_blank" class="btn btn-picpay">
-              Presentear
-            </a>
-          </div>
-
-          <div class="product" data-price="150">
-            <img src="imgs/CANECAS.png" alt="Jogo de Pratos">
-            <h4>BREJAS</h4>
-            <span>R$ 150,00</span>
-            <a href="https://link-de-pagamento.com/2" target="_blank" class="btn btn-picpay">
-              Presentear
-            </a>
-          </div>
-
-          <div class="product" data-price="250">
-            <img src="imgs/PRATO.png" alt="Liquidificador">
-            <h4>PRATOS</h4>
-            <span>R$ 250,00</span>
-            <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
-              Presentear
-            </a>
-          </div>
-
-          <div class="product" data-price="300">
-            <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-            <h4>RELOGIO PIKA</h4>
-            <span>R$ 250,00</span>
-            <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
-              Presentear
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <footer>
-    <div>
-      <img src="imgs/ELLIE.png" alt="Ellie" class="ellie">
-      <img src="imgs/JOEL.png" alt="Ellie" class="ellie">
     </div>
-    <p>Com carinho, Catarina & João</p>
-  </footer>
+
+    <footer>
+      <div>
+        <img src="imgs/ELLIE.png" alt="Ellie" class="ellie">
+        <img src="imgs/JOEL.png" alt="Ellie" class="ellie">
+      </div>
+      <p>Com carinho, Catarina & João</p>
+    </footer>
 
 
-  <script>
-    // Função de copiar com feedback elegante
-    function filterProducts() {
-      const filterValue = document.getElementById("priceFilter").value;
-      const products = document.querySelectorAll(".product");
+    <script>
+      // Função de copiar com feedback elegante
+      function applyFilters() {
+        const container = document.getElementById("catalog");
+        const products = Array.from(document.querySelectorAll(".product"));
+        const priceLimit = document.getElementById("priceFilter").value;
+        const order = document.getElementById("orderFilter").value;
 
-      products.forEach(product => {
-        const price = Number(product.getAttribute("data-price"));
+        // 1. Filtrar por preço
+        products.forEach(product => {
+          const price = parseFloat(product.getAttribute("data-price"));
+          if (priceLimit === "all" || price <= parseFloat(priceLimit)) {
+            product.style.display = "flex";
+          } else {
+            product.style.display = "none";
+          }
+        });
 
-        if (filterValue === "all" || price <= Number(filterValue)) {
-          product.style.display = "block";
-        } else {
-          product.style.display = "none";
+        // 2. Ordenar
+        if (order !== "default") {
+          products.sort((a, b) => {
+            const priceA = parseFloat(a.getAttribute("data-price"));
+            const priceB = parseFloat(b.getAttribute("data-price"));
+            return order === "asc" ? priceA - priceB : priceB - priceA;
+          });
+
+          // Reordenar no HTML
+          products.forEach(p => container.appendChild(p));
         }
-      });
-    }
-
-
-    function copyPix() {
-      const pixKey = document.getElementById("pixKey").innerText;
-      const copyMsg = document.getElementById("copyMsg");
-
-      navigator.clipboard.writeText(pixKey).then(() => {
-        copyMsg.innerText = "✅ Copiado com sucesso!";
-        copyMsg.style.color = "#21c25e";
-      });
-    }
-
-    const weddingDate = new Date("2026-05-24T15:00:00").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "<p>O grande dia chegou! 🎉</p>";
-        return;
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
-    }
+      function copyPix() {
+        const pixKey = document.getElementById("pixKey").innerText;
+        const copyMsg = document.getElementById("copyMsg");
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+        navigator.clipboard.writeText(pixKey).then(() => {
+          copyMsg.innerText = "✅ Copiado com sucesso!";
+          copyMsg.style.color = "#21c25e";
+        });
+      }
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    const gatos = [
-      "imgs/JOEL ARRANHANDO.png",
-      "imgs/ELLIE ARRANHANDO.png",
-    ];
-  
-    const gatoAleatorio = gatos[Math.floor(Math.random() * gatos.length)];
-  
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 18 },
-        shape: {
-          type: "image",
-          image: {
-            src: gatoAleatorio,
-            width: 100,
-            height: 100
-          }
+      const weddingDate = new Date("2026-05-24T15:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+          document.getElementById("countdown").innerHTML = "<p>O grande dia chegou! 🎉</p>";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      const gatos = [
+        "imgs/BOLA DE ESPELHO.png",
+        "imgs/CANECAS.png",
+        "imgs/PRATO.png",
+        "imgs/CANECAS.png",
+      ];
+
+      const gatoAleatorio = gatos[Math.floor(Math.random() * gatos.length)];
+
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 18 },
+          shape: {
+            type: "image",
+            image: {
+              src: gatoAleatorio,
+              width: 100,
+              height: 100
+            }
+          },
+          size: { value: 22, random: true },
+          move: { enable: true, speed: 1, direction: "top" }
         },
-        size: { value: 22, random: true },
-        move: { enable: true, speed: 1, direction: "top" }
-      },
-      retina_detect: true
-    });
+        retina_detect: true
+      });
+    </script>
+  </body>
+</div>
+
+<!-- INTRO COM LOGO + ZÍPER -->
+<div id="intro" onclick="openZiper()">
+  <div class="overlay"></div>
+
+  <!-- Conteúdo central -->
+  <div class="intro-content">
+    <img src="imgs/LOGO CASAMENTO.png" alt="Catarina & João">
+    <p>Clique para entrar</p>
+  </div>
+
+  <!-- Zíper -->
+  <img src="imgs/ELLIE ARRANHANDO.png" id="ziper" alt="Zíper">
+
+  <script>
+    const intro = document.getElementById("intro");
+    const main = document.getElementById("main-site");
+    const ziper = document.getElementById("ziper");
+    const overlay = intro.querySelector(".overlay");
+    const introContent = intro.querySelector(".intro-content");
+
+    // Garante que o site principal esteja pronto por baixo
+    main.classList.remove("hidden");
+    main.style.opacity = 1;
+
+    let isOpening = false;
+
+    function openZiper() {
+      if (isOpening) return;
+      isOpening = true;
+
+      // Torna o gato visível no momento do clique
+      ziper.style.opacity = "1";
+
+      const duration = 2200;
+      const startTime = performance.now();
+      const startTop = -150;
+      const endTop = window.innerHeight + 100;
+
+      const animate = (time) => {
+        let elapsed = time - startTime;
+        let progress = Math.min(elapsed / duration, 1);
+
+        const currentTop = startTop + (endTop - startTop) * progress;
+        ziper.style.top = currentTop + "px";
+
+        const clipPercent = progress * 100;
+        overlay.style.clipPath = `inset(${clipPercent}% 0 0 0)`;
+
+        introContent.style.opacity = 1 - (progress * 1.5);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          intro.style.display = "none";
+          // A MÁGICA AQUI: Libera o scroll do site após a intro sumir
+          document.body.style.overflowY = "auto";
+        }
+      };
+
+      requestAnimationFrame(animate);
+
+      // Inicia partículas (restante do código...)
+      if (window.particlesJS) {
+        const gatosImgs = ["imgs/JOEL ARRANHANDO.png", "imgs/ELLIE ARRANHANDO.png"];
+        const gatoAleatorio = gatosImgs[Math.floor(Math.random() * gatosImgs.length)];
+        particlesJS("particles-js", {
+          particles: {
+            number: { value: 15 },
+            shape: { type: "image", image: { src: gatoAleatorio, width: 100, height: 100 } },
+            size: { value: 25, random: true },
+            move: { enable: true, speed: 1.5, direction: "top" }
+          }
+        });
+      }
+    }
   </script>
-  
-  
-  
-</body>
+</div>
 
 </html>
