@@ -482,6 +482,7 @@
         width: 100%;
         font-size: 0.7rem;
         padding: 8px;
+        text-align: center;
       }
     }
 
@@ -521,6 +522,59 @@
       opacity: 0.8;
       margin-bottom: 1rem;
     }
+
+    .menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--texto);
+}
+
+/* Mantém layout normal no desktop */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+  }
+
+  .navbar {
+    justify-content: center;
+    padding: 35px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 250px;
+    height: 100vh;
+    background: var(--bege);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    z-index: 2000;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+}
+
   </style>
 </head>
 
@@ -530,10 +584,14 @@
     <div id="particles-js"></div>
 
     <nav class="navbar">
-      <a href="#home">Início</a>
-      <a href="#historia">Nossa História</a>
-      <a href="#local">Local</a>
-      <a href="#presentes">Presentes</a>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+      <div class="nav-links">
+        <a href="#home">Início</a>
+        <a href="#historia">Nossa História</a>
+        <a href="#local">Local</a>
+        <a href="#presentes">Presentes</a>
+      </div>
     </nav>
 
     <header class="hero" id="home">
@@ -901,6 +959,20 @@
       setInterval(updateCountdown, 1000);
       updateCountdown();
     </script>
+
+<script>
+  function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+  }
+
+  // Fecha o menu ao clicar em um link
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.querySelector(".nav-links").classList.remove("active");
+    });
+  });
+</script>
+
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
