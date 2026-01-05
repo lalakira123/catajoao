@@ -524,57 +524,74 @@
     }
 
     .menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--texto);
-}
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--texto);
+    }
 
-/* Mantém layout normal no desktop */
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    left: 20px;
-    top: 15px;
-  }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 15px;
+      }
 
-  .navbar {
-    justify-content: center;
-    padding: 35px;
-  }
+      .navbar {
+        justify-content: center;
+        padding: 35px;
+      }
 
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -260px;
-    width: 250px;
-    height: 100vh;
-    background: var(--bege);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    transition: right 0.3s ease;
-    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
-    z-index: 2000;
-  }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -260px;
+        width: 250px;
+        height: 100vh;
+        background: var(--bege);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 2000;
+      }
 
-  .nav-links.active {
-    right: 0;
-  }
+      .nav-links.active {
+        right: 0;
+      }
 
-  .nav-links a {
-    font-size: 1rem;
-  }
-}
+      .nav-links a {
+        font-size: 1rem;
+      }
 
+
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: calc(100% - 250px);
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 1500;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
   </style>
 </head>
 
@@ -585,7 +602,7 @@
 
     <nav class="navbar">
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    
+
       <div class="nav-links">
         <a href="#home">Início</a>
         <a href="#historia">Nossa História</a>
@@ -593,6 +610,8 @@
         <a href="#presentes">Presentes</a>
       </div>
     </nav>
+
+    <div class="menu-overlay" onclick="closeMenu()"></div>
 
     <header class="hero" id="home">
       <img src="imgs/LOGO CASAMENTO.png" alt="Catarina e João" class="logo">
@@ -960,18 +979,25 @@
       updateCountdown();
     </script>
 
-<script>
-  function toggleMenu() {
-    document.querySelector(".nav-links").classList.toggle("active");
-  }
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector(".nav-links");
+        const overlay = document.querySelector(".menu-overlay");
 
-  // Fecha o menu ao clicar em um link
-  document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-      document.querySelector(".nav-links").classList.remove("active");
-    });
-  });
-</script>
+        menu.classList.toggle("active");
+        overlay.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        document.querySelector(".nav-links").classList.remove("active");
+        document.querySelector(".menu-overlay").classList.remove("active");
+      }
+
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+      });
+    </script>
+
 
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
