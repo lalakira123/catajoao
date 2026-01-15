@@ -70,16 +70,25 @@
       clip-path: inset(0% 0 0 0);
     }
 
-    #ziper {
+    .ziper {
       position: absolute;
       top: -150px;
-      left: 50%;
-      transform: translateX(-50%);
       width: 80px;
       z-index: 10;
       opacity: 0;
       pointer-events: none;
     }
+
+    .ziper-left {
+      left: 45%;
+      transform: translateX(-100%);
+    }
+
+    .ziper-right {
+      left: 55%;
+      transform: translateX(0);
+    }
+
 
     .intro-content {
       position: relative;
@@ -234,6 +243,21 @@
       padding: 4rem 1rem;
     }
 
+    .programacao-section {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .trajes-section {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .confirme-section {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
     h2 {
       font-family: 'Playfair Display', serif;
       color: var(--terracota);
@@ -375,7 +399,10 @@
     #home,
     #historia,
     #presentes,
-    #local {
+    #local,
+    #trajes,
+    #confirme,
+    #programacao {
       scroll-margin-top: 60px;
     }
 
@@ -592,6 +619,34 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+
+
+    #presentes .product-image img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .rsvp-form {
+      max-width: 400px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .rsvp-form input {
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .rsvp-form button {
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -607,6 +662,9 @@
         <a href="#home">Início</a>
         <a href="#historia">Nossa História</a>
         <a href="#local">Local</a>
+        <a href="#programacao">Programação</a>
+        <a href="#trajes">Trajes</a>
+        <a href="#confirme">Confirme sua presença</a>
         <a href="#presentes">Presentes</a>
       </div>
     </nav>
@@ -637,28 +695,94 @@
 
     <div class="container">
       <section class="historia" id="historia">
-        <img src="imgs/CASAL.png" alt="" class="casal-ilustra">
+        <p>
+          Queridos amigos e familiares!
+        </p>
+        <p>
+          Após <strong>7 anos construindo nossa história</strong>, estamos prestes a viver um dos momentos mais
+          especiais das nossas vidas.<br>
+          Com a ajuda de amigos, criamos esse site com muito carinho para orientar vocês sobre o nosso festejo.
+        </p>
         <h2>Nossa História</h2>
-        <p>Foi em um dia ensolarado que nossas vidas se cruzaram...</p>
+        <p>“Tudo começou quando ela veio pra dançar comigo” e assim, ao som de BaianaSystem em um bloco de carnaval,
+          nossa história começou.</p>
+        <p>
+          Nos anos finais da escola nos aproximamos. Uma grande amizade surgiu e se fortaleceu, mas, em 2019, já em
+          faculdades diferentes, nossos sentimentos afloraram um pelo outro e tomamos a decisão de iniciar nosso namoro,
+          mesmo diante de um enorme obstáculo: <strong>400 km de distância.</strong>
+        </p>
+        <p>
+          Os anos foram passando, nos formamos e amadurecemos juntos. Percebemos que era o momento de dar um passo
+          adiante.
+        </p>
+        <p>
+          Então, ao final de 2023, decidimos morar juntos, o que intensificou ainda mais o amor e a relação baseada em
+          companheirismo e cumplicidade, que tem feito muito sentido para nossas vidas.
+        </p>
+        <p>
+          No ano seguinte, sentimos que faltava algo para completar nossa família: adotamos duas criaturinhas para serem
+          amadas por nós dois, os gatinhos irmãos Joel e Ellie.
+        </p>
+        <p>
+          Decidimos celebrar tudo isso da forma mais especial: <strong>com o nosso casamento!</strong>
+        </p>
+        <p>
+          No domingo, dia <strong>24 de maio de 2026</strong>, iremos oficializar esse “sim” que já escolhemos todos os
+          dias, cercados pelas pessoas que amamos, para comemorar o amor que construímos com parceria, respeito e
+          paixão.
+        </p>
       </section>
 
       <section class="local-section" id="local">
         <h2 class="local">Local da Celebração 📍</h2>
-        <p>Baile de Favela - Heliópolis, São Paulo - SP</p>
+        <p>A cerimônia e a festa irão acontecer no mesmo local, o <strong>Espaço Canto Verde</strong>, localizado na:
+        </p>
+        <p><strong>Rua Estado de Sergipe, 200 - Jardim Imperador.</strong></p>
 
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.334114766943!2d-46.5916325!3d-23.6282361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b619053805f%3A0xc3c94295325b1698!2sEstr.%20das%20L%C3%A1grimas%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1715634567890!5m2!1spt-BR!2sbr"
+            src="https://www.google.com/maps?q=Rua+Estado+de+Sergipe,+200+-+Jardim+Imperador,+São+Paulo+-+SP&output=embed"
             width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
 
         <div style="margin-top: 20px;">
-          <a href="https://www.google.com/maps/dir//Baile+de+Favela+Heli%C3%B3polis" target="_blank" class="btn-picpay">
+          <a href="https://www.google.com/maps/search/?api=1&query=Rua+Estado+de+Sergipe+200+Jardim+Imperador+São+Paulo+SP+Brasil"
+            target="_blank" class="btn-picpay">
             Abrir no Google Maps
           </a>
         </div>
+      </section>
+
+      <section class="programacao-section" id="programacao">
+        <h2>Programação</h2>
+        <p>Nossa festa terá início às 15h30 e irá até as 22h. Confira a programação:</p>
+
+        <img src="imgs/PROGRAMACAO.png" style="width: 300px;" />
+
+      </section>
+      <section class="trajes-section" id="trajes">
+        <h2>Trajes</h2>
+        <p>Queremos que todos se sintam elegantes, mas acima de tudo confortáveis para celebrar conosco, por isso, a
+          escolha dos trajes deve ser no estilo <strong>Esporte Fino.</strong></p>
+      </section>
+      <section class="confirme-section" id="confirme">
+        <h2>Confirme sua presença 💌</h2>
+        <p>Preencha abaixo para confirmar sua presença no nosso casamento</p>
+
+        <form id="rsvp-form" class="rsvp-form">
+          <input type="text" name="nome" placeholder="Seu nome completo" required />
+
+          <input type="number" name="acompanhantes" placeholder="Número de acompanhantes" min="0" required />
+
+          <button type="submit" class="btn-picpay">
+            Confirmar presença
+          </button>
+
+          <p id="form-status" style="margin-top: 1rem;"></p>
+        </form>
+
       </section>
 
       <section class="gift-section" id="presentes">
@@ -688,216 +812,242 @@
         <div class="gift-card">
           <div class="catalog" id="catalog">
             <div class="product" data-price="80">
-              <img src="imgs/ALIANÇAS.png" alt="Jogo de Copos">
-              <h4>ALIANÇAS</h4>
-              <span>R$ 80,00</span>
-              <a href="https://link-de-pagamento.com/1" target="_blank" class="btn btn-picpay">
+              <div class="product-image">
+                <img src="presentes/PASTEL.jpeg" alt="PASTEL">
+              </div>
+              <h4>Um mês de pastel na feira garantido</h4>
+              <span>R$ 150,00</span>
+              <a href="https://mpago.la/2FXzZbU" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="150">
-              <img src="imgs/CANECAS.png" alt="Jogo de Pratos">
-              <h4>BREJAS</h4>
-              <span>R$ 150,00</span>
-              <a href="https://link-de-pagamento.com/2" target="_blank" class="btn btn-picpay">
+              <div class="product-image">
+                <img src="presentes/CAFÉ DA MANHÃ ESPECIAL.jpeg" alt="CAFÉ DA MANHÃ ESPECIAL">
+              </div>
+              <h4>Café da manhã especial</h4>
+              <span>R$ 200,00</span>
+              <a href="https://mpago.la/2qoMj2o" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="250">
-              <img src="imgs/PRATO.png" alt="Liquidificador">
-              <h4>PRATOS</h4>
+              <div class="product-image">
+                <img src="presentes/PICNIC.jpeg" alt="PICNIC">
+              </div>
+              <h4>Piquenique no parque</h4>
               <span>R$ 250,00</span>
+              <a href="https://mpago.la/24yG157" target="_blank" class="btn btn-picpay">
+                Presentear
+              </a>
+            </div>
+
+            <div class="product" data-price="300">
+              <div class="product-image">
+                <img src="presentes/POR DO SOL.jpeg" alt="POR DO SOL">
+              </div>
+              <h4>Passeio para ver por do sol na lua de mel</h4>
+              <span>R$ 300,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/JANTAR ROMÂNTICO.jpeg" alt="JANTAR ROMÂNTICO">
+              </div>
+              <h4>Jantar romântico</h4>
+              <span>R$ 350,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/RODIZIO JAPA.jpeg" alt="RODIZIO JAPA">
+              </div>
+              <h4>Rodízio japa premium</h4>
+              <span>R$ 400,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/CITY TOUR.jpeg" alt="CITY TOUR">
+              </div>
+              <h4>City tour no centro histórico</h4>
+              <span>R$ 425,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/PASSEIO BARCO.jpeg" alt="PASSEIO BARCO">
+              </div>
+              <h4>Passeio de barco na lua de mel</h4>
+              <span>R$ 450,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/TRILHA.jpeg" alt="TRILHA">
+              </div>
+              <h4>Trilha guiada para uma vista linda na viagem</h4>
+              <span>R$ 500,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/GATOS.jpeg" alt="GATOS">
+              </div>
+              <h4>Babá dos gatinhos durante a viagem</h4>
+              <span>R$ 550,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/ILUMINAÇÃO.jpeg" alt="ILUMINAÇÃO">
+              </div>
+              <h4>Iluminação boa para fotos na festa</h4>
+              <span>R$ 600,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/MALAS.jpeg" alt="MALAS">
+              </div>
+              <h4>Malas novas pra viagem</h4>
+              <span>R$ 650,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/SPA.jpeg" alt="SPA">
+              </div>
+              <h4>Dia de spa dos noivos</h4>
+              <span>R$ 700,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/INGRESSO.jpeg" alt="INGRESSO">
+              </div>
+              <h4>Par de ingressos para um show que amamos</h4>
+              <span>R$ 750,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/RODADA DE CHOPP.jpeg" alt="RODADA DE CHOPP">
+              </div>
+              <h4>Chopp da festa</h4>
+              <span>R$ 800,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/COMPRA MERCADO.jpeg" alt="COMPRA MERCADO">
+              </div>
+              <h4>Despesa do mês garantida</h4>
+              <span>R$ 850,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/FOTÓGRAFO DA FESTA.jpeg" alt="FOTÓGRAFO DA FESTA">
+              </div>
+              <h4>Ajuda com fotografo da festa</h4>
+              <span>R$ 900,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/BETO CARREIRO.jpeg" alt="BETO CARREIRO">
+              </div>
+              <h4>Bate e volta no beto carreiro</h4>
+              <span>R$ 950,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/Pre wedding.jpeg" alt="Pre wedding">
+              </div>
+              <h4>Sessão de fotos pre wedding</h4>
+              <span>R$ 1.000,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/MUSICA.jpeg" alt="MUSICA">
+              </div>
+              <h4>Musica da festa</h4>
+              <span>R$ 1.200,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/FINANCIAMENTO.jpeg" alt="FINANCIAMENTO">
+              </div>
+              <h4>Futura parcela de um financimento</h4>
+              <span>R$ 1.500,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
             <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
-                Presentear
-              </a>
-            </div>
-
-            <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
-                Presentear
-              </a>
-            </div>
-
-            <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
-                Presentear
-              </a>
-            </div>
-
-            <div class="product" data-price="300">
-              <img src="imgs/RELÓGIO.png" alt="Liquidificador">
-              <h4>RELOGIO PIKA</h4>
-              <span>R$ 250,00</span>
+              <div class="product-image">
+                <img src="presentes/AVIAO.jpeg" alt="AVIAO">
+              </div>
+              <h4>Ajuda na passagem para lua de mel</h4>
+              <span>R$ 1.800,00</span>
               <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
@@ -911,11 +1061,45 @@
     <footer>
       <div>
         <img src="imgs/ELLIE.png" alt="Ellie" class="ellie">
-        <img src="imgs/JOEL.png" alt="Ellie" class="ellie">
+        <img src="imgs/JOEL.png" alt="Joel" class="ellie">
       </div>
       <p>Com carinho, Catarina & João</p>
     </footer>
 
+    <script>
+      const form = document.getElementById("rsvp-form");
+      const status = document.getElementById("form-status");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const data = {
+          nome: form.nome.value,
+          acompanhantes: form.acompanhantes.value
+        };
+
+        status.innerText = "Enviando confirmação...";
+
+        try {
+          const response = await fetch("", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          });
+
+          if (response.ok) {
+            status.innerText = "Presença confirmada com sucesso! 💚";
+            form.reset();
+          } else {
+            status.innerText = "Erro ao enviar. Tente novamente.";
+          }
+        } catch (error) {
+          status.innerText = "Erro de conexão. Tente novamente.";
+        }
+      });
+    </script>
 
     <script>
       document.querySelectorAll('.navbar a').forEach(anchor => {
@@ -1000,7 +1184,7 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
       const gatos = [
         "imgs/BOLA DE ESPELHO.png",
@@ -1027,7 +1211,7 @@
         },
         retina_detect: true
       });
-    </script>
+    </script> -->
   </body>
 </div>
 
@@ -1035,16 +1219,17 @@
   <div class="overlay"></div>
 
   <div class="intro-content">
-    <img src="imgs/LOGO CASAMENTO.png" alt="Catarina & João">
+    <img src="imgs/CJ.png" alt="Catarina & João">
     <p>Clique para entrar</p>
   </div>
 
-  <img src="imgs/ELLIE ARRANHANDO.png" id="ziper" alt="Zíper">
+  <img src="imgs/JOEL ARRANHANDO.png" class="ziper ziper-left" alt="Joel">
+  <img src="imgs/ELLIE ARRANHANDO.png" class="ziper ziper-right" alt="Ellie">
 
   <script>
     const intro = document.getElementById("intro");
     const main = document.getElementById("main-site");
-    const ziper = document.getElementById("ziper");
+    const zipers = document.querySelectorAll(".ziper");
     const overlay = intro.querySelector(".overlay");
     const introContent = intro.querySelector(".intro-content");
 
@@ -1057,7 +1242,7 @@
       if (isOpening) return;
       isOpening = true;
 
-      ziper.style.opacity = "1";
+      zipers.forEach(z => z.style.opacity = "1");
 
       const duration = 2200;
       const startTime = performance.now();
@@ -1069,7 +1254,10 @@
         let progress = Math.min(elapsed / duration, 1);
 
         const currentTop = startTop + (endTop - startTop) * progress;
-        ziper.style.top = currentTop + "px";
+        zipers.forEach(z => {
+          z.style.top = currentTop + "px";
+        });
+
 
         const clipPercent = progress * 100;
         overlay.style.clipPath = `inset(${clipPercent}% 0 0 0)`;
@@ -1086,18 +1274,18 @@
 
       requestAnimationFrame(animate);
 
-      if (window.particlesJS) {
-        const gatosImgs = ["imgs/JOEL ARRANHANDO.png", "imgs/ELLIE ARRANHANDO.png"];
-        const gatoAleatorio = gatosImgs[Math.floor(Math.random() * gatosImgs.length)];
-        particlesJS("particles-js", {
-          particles: {
-            number: { value: 15 },
-            shape: { type: "image", image: { src: gatoAleatorio, width: 100, height: 100 } },
-            size: { value: 25, random: true },
-            move: { enable: true, speed: 1.5, direction: "bottom" }
-          }
-        });
-      }
+      // if (window.particlesJS) {
+      //   const gatosImgs = ["imgs/JOEL ARRANHANDO.png", "imgs/ELLIE ARRANHANDO.png"];
+      //   const gatoAleatorio = gatosImgs[Math.floor(Math.random() * gatosImgs.length)];
+      //   particlesJS("particles-js", {
+      //     particles: {
+      //       number: { value: 15 },
+      //       shape: { type: "image", image: { src: gatoAleatorio, width: 100, height: 100 } },
+      //       size: { value: 25, random: true },
+      //       move: { enable: true, speed: 1.5, direction: "bottom" }
+      //     }
+      //   });
+      // }
     }
   </script>
 </div>
