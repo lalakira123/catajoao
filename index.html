@@ -598,8 +598,6 @@
       .nav-links a {
         font-size: 1rem;
       }
-
-
     }
 
     .menu-overlay {
@@ -757,7 +755,10 @@
 
       <section class="programacao-section" id="programacao">
         <h2>Programação</h2>
-        <p>Nossa festa terá início às 15h30 e irá até as 22h. Confira a programação:</p>
+        <p>Nossa festa terá início às 15h30 e irá até as 22h.</p>
+        <p>Pedimos atenção com o horário, não podemos atrasar a cerimônia, e queremos aproveitar ao máximo o tempo de
+          festa com cada um! ❤️</p>
+        <p>Confira a programação:</p>
 
         <img src="imgs/PROGRAMACAO.png" style="width: 300px;" />
 
@@ -769,7 +770,8 @@
       </section>
       <section class="confirme-section" id="confirme">
         <h2>Confirme sua presença 💌</h2>
-        <p>Preencha abaixo para confirmar sua presença no nosso casamento</p>
+        <p>Para que possamos organizar tudo da melhor forma, pedimos que confirmem sua presença (ou ausência) através do
+          formulário abaixo até dia 20/04/2026. Mesmo que não possa comparecer, por favor, nos avise.</p>
 
         <form id="rsvp-form" class="rsvp-form">
           <input type="text" name="nome" placeholder="Seu nome completo" required />
@@ -786,23 +788,28 @@
       </section>
 
       <section class="gift-section" id="presentes">
-        <h2>Catálogo de Presentes 🎁</h2>
-        <p>Escolha um presente especial para nos ajudar a começar essa nova fase</p>
+        <h2>Presentes que são a nossa cara 🎁</h2>
+        <p style="justify-content: center;">Para nós, o melhor presente é ter você ao nosso lado no grande dia! Mas, se você faz questão de nos mimar,
+          criamos esta lista simbólica.
+          Como já temos nosso lar equipado, as contribuições serão destinadas à realização da nossa festa e da nossa
+          primeira viagem como casados. Escolha o item que mais combina com a gente e o valor será recebido com muita
+          gratidão para celebrar essa nova fase! (Pagamentos disponíveis via PIX ou cartão).
+        </p>
         <div class="filter-box" style="display: flex; flex-direction: line">
           <div style="margin-bottom: 1rem; margin-right: 1rem;">
             <label for="priceFilter">Até R$: </label>
             <select id="priceFilter" onchange="applyFilters()">
               <option value="all">Todos os preços</option>
-              <option value="100">Até R$ 100</option>
               <option value="250">Até R$ 250</option>
               <option value="500">Até R$ 500</option>
+              <option value="1000">Até R$ 1000</option>
+              <option value="2000">Até R$ 2000</option>
             </select>
           </div>
 
           <div>
             <label for="orderFilter">Ordenar por: </label>
             <select id="orderFilter" onchange="applyFilters()">
-              <option value="default">Destaques</option>
               <option value="asc">Menor Preço</option>
               <option value="desc">Maior Preço</option>
             </select>
@@ -811,24 +818,24 @@
 
         <div class="gift-card">
           <div class="catalog" id="catalog">
-            <div class="product" data-price="80">
+            <div class="product" data-price="150">
               <div class="product-image">
                 <img src="presentes/PASTEL.jpeg" alt="PASTEL">
               </div>
               <h4>Um mês de pastel na feira garantido</h4>
               <span>R$ 150,00</span>
-              <a href="https://mpago.la/2FXzZbU" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/bcx1546-um-mes-de-pastel-na-feira" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="150">
+            <div class="product" data-price="200">
               <div class="product-image">
                 <img src="presentes/CAFÉ DA MANHÃ ESPECIAL.jpeg" alt="CAFÉ DA MANHÃ ESPECIAL">
               </div>
               <h4>Café da manhã especial</h4>
               <span>R$ 200,00</span>
-              <a href="https://mpago.la/2qoMj2o" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/exs6753-cafe-da-manha-especial" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
@@ -839,7 +846,7 @@
               </div>
               <h4>Piquenique no parque</h4>
               <span>R$ 250,00</span>
-              <a href="https://mpago.la/24yG157" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/lds8061-piquenique-no-parque" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
@@ -850,205 +857,205 @@
               </div>
               <h4>Passeio para ver por do sol na lua de mel</h4>
               <span>R$ 300,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/uky5501-passeio-para-ver-por-do-sol-na-lua-de-mel" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="350">
               <div class="product-image">
                 <img src="presentes/JANTAR ROMÂNTICO.jpeg" alt="JANTAR ROMÂNTICO">
               </div>
               <h4>Jantar romântico</h4>
               <span>R$ 350,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/wrr5248-jantar-romantico" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="400">
               <div class="product-image">
                 <img src="presentes/RODIZIO JAPA.jpeg" alt="RODIZIO JAPA">
               </div>
               <h4>Rodízio japa premium</h4>
               <span>R$ 400,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/uwq1612-rodizio-japa-premium" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="425">
               <div class="product-image">
                 <img src="presentes/CITY TOUR.jpeg" alt="CITY TOUR">
               </div>
               <h4>City tour no centro histórico</h4>
               <span>R$ 425,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/hnl1459-city-tour-no-centro-historico" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="450">
               <div class="product-image">
                 <img src="presentes/PASSEIO BARCO.jpeg" alt="PASSEIO BARCO">
               </div>
               <h4>Passeio de barco na lua de mel</h4>
               <span>R$ 450,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/gys2817-passeio-de-barco-na-lua-de-nel" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="500">
               <div class="product-image">
                 <img src="presentes/TRILHA.jpeg" alt="TRILHA">
               </div>
               <h4>Trilha guiada para uma vista linda na viagem</h4>
               <span>R$ 500,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/sdk1953-trioh-guiada-para-uma-vista-linda-na-viages" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="550">
               <div class="product-image">
                 <img src="presentes/GATOS.jpeg" alt="GATOS">
               </div>
               <h4>Babá dos gatinhos durante a viagem</h4>
               <span>R$ 550,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/oey6945-baba-dos-gatinhos-durante-a-viagem" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="600">
               <div class="product-image">
                 <img src="presentes/ILUMINAÇÃO.jpeg" alt="ILUMINAÇÃO">
               </div>
               <h4>Iluminação boa para fotos na festa</h4>
               <span>R$ 600,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/iel5785-iluminacao-boa-para-fotos-na-festas" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="650">
               <div class="product-image">
                 <img src="presentes/MALAS.jpeg" alt="MALAS">
               </div>
               <h4>Malas novas pra viagem</h4>
               <span>R$ 650,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/pue4401-malas-novas-pra-viagem" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="700">
               <div class="product-image">
                 <img src="presentes/SPA.jpeg" alt="SPA">
               </div>
               <h4>Dia de spa dos noivos</h4>
               <span>R$ 700,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/ufw9761-dia-de-spa-dos-noivos" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="750">
               <div class="product-image">
                 <img src="presentes/INGRESSO.jpeg" alt="INGRESSO">
               </div>
               <h4>Par de ingressos para um show que amamos</h4>
               <span>R$ 750,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/hxg5386-par-de-ingressos-para-um-show-que-amamos" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="800">
               <div class="product-image">
                 <img src="presentes/RODADA DE CHOPP.jpeg" alt="RODADA DE CHOPP">
               </div>
               <h4>Chopp da festa</h4>
               <span>R$ 800,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/mtn2166-chopp-da-festa" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="850">
               <div class="product-image">
                 <img src="presentes/COMPRA MERCADO.jpeg" alt="COMPRA MERCADO">
               </div>
               <h4>Despesa do mês garantida</h4>
               <span>R$ 850,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/dxn3017-despesas-do-mes-garantida" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="900">
               <div class="product-image">
                 <img src="presentes/FOTÓGRAFO DA FESTA.jpeg" alt="FOTÓGRAFO DA FESTA">
               </div>
               <h4>Ajuda com fotografo da festa</h4>
               <span>R$ 900,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/tlx5825-ajuda-com-fotografo-da-festa" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="950">
               <div class="product-image">
                 <img src="presentes/BETO CARREIRO.jpeg" alt="BETO CARREIRO">
               </div>
               <h4>Bate e volta no beto carreiro</h4>
               <span>R$ 950,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/hmg7705-bate-e-volta-no-beto-carreiro" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="1000">
               <div class="product-image">
                 <img src="presentes/Pre wedding.jpeg" alt="Pre wedding">
               </div>
               <h4>Sessão de fotos pre wedding</h4>
               <span>R$ 1.000,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/unv2759-sessao-de-fotos-pre-wedding" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="1200">
               <div class="product-image">
                 <img src="presentes/MUSICA.jpeg" alt="MUSICA">
               </div>
               <h4>Musica da festa</h4>
               <span>R$ 1.200,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/wjc8372-musica-da-festa" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="1500">
               <div class="product-image">
                 <img src="presentes/FINANCIAMENTO.jpeg" alt="FINANCIAMENTO">
               </div>
               <h4>Futura parcela de um financimento</h4>
               <span>R$ 1.500,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/bpm1363-futura-parcela-de-um-financiamento" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
 
-            <div class="product" data-price="300">
+            <div class="product" data-price="1800">
               <div class="product-image">
                 <img src="presentes/AVIAO.jpeg" alt="AVIAO">
               </div>
               <h4>Ajuda na passagem para lua de mel</h4>
               <span>R$ 1.800,00</span>
-              <a href="https://link-de-pagamento.com/3" target="_blank" class="btn btn-picpay">
+              <a href="https://loja.infinitepay.io/joao-pedro-bc22/qlu8843-ajuda-na-passagem-para-a-lua-de-mel" target="_blank" class="btn btn-picpay">
                 Presentear
               </a>
             </div>
