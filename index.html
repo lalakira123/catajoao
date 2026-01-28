@@ -187,8 +187,7 @@
       text-align: center;
       padding: 4rem 1rem 2rem;
       color: #2c3e50;
-      background: linear-gradient(135deg, #fafafa 0%, #fdf5e6 100%);
-      border-bottom: 3px solid #d4af37;
+      background: linear-gradient(135deg, #fafafa 0%, #d4af37 250%);
     }
 
     header h1 {
@@ -645,6 +644,20 @@
     .rsvp-form button {
       margin-top: 10px;
     }
+
+    #acompanhantes-container input {
+      margin-top: 0.5rem;
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 1rem;
+      background-color: #779258;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 20px;
+      color: #fff;
+    }
   </style>
 </head>
 
@@ -760,7 +773,7 @@
           festa com cada um! ❤️</p>
         <p>Confira a programação:</p>
 
-        <img src="imgs/PROGRAMACAO.png" style="width: 300px;" />
+        <img src="imgs/PROGRAMACAO.jpeg" style="width: 300px;" />
 
       </section>
       <section class="trajes-section" id="trajes">
@@ -770,20 +783,32 @@
       </section>
       <section class="confirme-section" id="confirme">
         <h2>Confirme sua presença 💌</h2>
-        <p>Para que possamos organizar tudo da melhor forma, pedimos que confirmem sua presença (ou ausência) através do
+        <p>Para que possamos organizar tudo da melhor forma, pedimos que confirmem sua presença através do
           formulário abaixo até dia 20/04/2026. Mesmo que não possa comparecer, por favor, nos avise.</p>
 
         <form id="rsvp-form" class="rsvp-form">
           <input type="text" name="nome" placeholder="Seu nome completo" required />
 
-          <input type="number" name="acompanhantes" placeholder="Número de acompanhantes" min="0" required />
+          <input type="number" name="acompanhantes" id="acompanhantes" placeholder="Número de acompanhantes" min="0"
+            max="8" required />
+
+          <div id="acompanhantes-container">
+            <input type="text" name="acompanhante1" placeholder="Acompanhante 1" />
+            <input type="text" name="acompanhante2" placeholder="Acompanhante 2" />
+            <input type="text" name="acompanhante3" placeholder="Acompanhante 3" />
+            <input type="text" name="acompanhante4" placeholder="Acompanhante 4" />
+            <input type="text" name="acompanhante5" placeholder="Acompanhante 5" />
+            <input type="text" name="acompanhante6" placeholder="Acompanhante 6" />
+            <input type="text" name="acompanhante7" placeholder="Acompanhante 7" />
+            <input type="text" name="acompanhante8" placeholder="Acompanhante 8" />
+          </div>
 
           <button type="submit" class="btn-picpay">
             Confirmar presença
           </button>
 
-          <p id="form-status" style="margin-top: 1rem;"></p>
         </form>
+        <p id="form-status" class="form-status"></p>
 
       </section>
 
@@ -1099,32 +1124,84 @@
     <script>
       const form = document.getElementById("rsvp-form");
       const status = document.getElementById("form-status");
+      const submitBtn = form.querySelector("button[type='submit']");
+
+      const STORAGE_KEY = "rsvp_enviado";
+
+      const l = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3S05FcWQtVlFfQWNwdnVLSGdoR05pemFvaENwUDBmX285MmVHbVl5SzFnLUcyTVRGN2xIekpZVGc0Wm15cjNEclQvZXhlYw==";
+
+      if (localStorage.getItem(STORAGE_KEY)) {
+        form.style.display = "none";
+        status.innerText = "Você já confirmou presença 💚";
+        status.style.display = "block";
+      }
 
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Enviando...";
+        status.style.display = "block";
         status.innerText = "Enviando confirmação...";
 
         try {
           const formData = new FormData();
           formData.append("nome", form.nome.value);
-          formData.append("acompanhantes", form.acompanhantes.value);
+          formData.append("acompanhante1", form.acompanhante1.value);
+          formData.append("acompanhante2", form.acompanhante2.value);
+          formData.append("acompanhante3", form.acompanhante3.value);
+          formData.append("acompanhante4", form.acompanhante4.value);
+          formData.append("acompanhante5", form.acompanhante5.value);
+          formData.append("acompanhante6", form.acompanhante6.value);
+          formData.append("acompanhante7", form.acompanhante7.value);
+          formData.append("acompanhante8", form.acompanhante8.value);
 
-          await fetch(
-            "https://script.google.com/macros/s/AKfycbwKNEqd-VQ_AcpvuKHghGNizaohCpP0f_o92eGmYyK1g-G2MTF7lHzJYTg4Zmyr3DrT/exec",
-            {
-              method: "POST",
-              body: formData
-            }
-          );
+          await fetch(atob(l), {
+            method: "POST",
+            body: formData
+          });
 
+          localStorage.setItem(STORAGE_KEY, "true");
+
+          form.style.display = "none";
           status.innerText = "Presença confirmada com sucesso! 💚";
-          form.reset();
 
         } catch (err) {
           console.error(err);
           status.innerText = "Erro de conexão. Tente novamente.";
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Confirmar presença";
         }
+      });
+    </script>
+
+    <script>
+      const acompanhantesInput = document.getElementById("acompanhantes");
+      const container = document.getElementById("acompanhantes-container");
+      const inputs = container.querySelectorAll("input");
+
+      inputs.forEach(input => {
+        input.style.display = "none";
+        input.required = false;
+      });
+
+      acompanhantesInput.addEventListener("input", () => {
+        let qtd = parseInt(acompanhantesInput.value, 10);
+
+        if (isNaN(qtd)) qtd = 0;
+        if (qtd < 0) qtd = 0;
+        if (qtd > 8) qtd = 8;
+
+        inputs.forEach((input, index) => {
+          if (index < qtd) {
+            input.style.display = "block";
+            input.required = true;
+          } else {
+            input.style.display = "none";
+            input.required = false;
+            input.value = "";
+          }
+        });
       });
     </script>
 
